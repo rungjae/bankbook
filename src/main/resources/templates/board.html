@@ -5,39 +5,58 @@
 <head>
     <meta charset="UTF-8">
     <title>모임통장</title>
+    <script>
+        function register() {
+            window.location.href="/board/register";
+            // const reqRegister = document.reqRegister;
+            // reqRegister.seq.value = seq;
+            // reqRegister.balance.value = balance;
+            // reqRegister.submit();
+        }
+    </script>
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
+
+<!--<form name="reqRegister" method="post" action="/board/register">-->
+<!--    <input type="text" name="seq" value="0">-->
+<!--    <input type="text" name="balance">-->
+<!--</form>-->
+
 <article class="my-3" id="tables">
     <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
         <h3>통장내역</h3>
     </div>
-    <div>
-        <div class="bd-example">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">사용처</th>
-                    <th scope="col">금액</th>
-                    <th scope="col">잔액</th>
-                    <th scope="col">결제시간</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="list : ${useList}">
-                    <td th:text="${list.seq}"></td>
-                    <td th:text="${list.use}"></td>
-                    <td th:text="${list.price}"></td>
-                    <td th:text="${list.balance}"></td>
-                    <td th:text="${list.payment_time}"></td>
-                </tr>
-                </tbody>
-            </table>
+    <form name="reqRegister" method="post" action="/board/register">
+        <div>
+            <div class="bd-example">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">사용처</th>
+                        <th scope="col">금액</th>
+                        <th scope="col">잔액</th>
+                        <th scope="col">결제시간</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="list : ${useList}">
+                        <td th:text="${list.seq}"></td>
+                        <td th:text="${list.use}"></td>
+                        <td th:text="${list.price}"></td>
+                        <td th:text="${list.balance}"></td>
+                        <td th:text="${list.payment_time}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="register()">등록</button>
         </div>
-        <button type="button" class="btn btn-primary" onclick="register()">등록</button>
-    </div>
+    </form>
 </article>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cheatsheet.js"></script>
 </body>
 </html>
