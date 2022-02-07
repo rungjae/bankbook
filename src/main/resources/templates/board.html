@@ -6,23 +6,17 @@
     <meta charset="UTF-8">
     <title>모임통장</title>
     <script>
-        function register() {
-            window.location.href="/board/register";
-            // const reqRegister = document.reqRegister;
-            // reqRegister.seq.value = seq;
-            // reqRegister.balance.value = balance;
-            // reqRegister.submit();
+        function deposit() {
+            window.location.href="/board/deposit";
+        }
+        function  withdraw(){
+            window.location.href="/board/withdraw";
         }
     </script>
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
-
-<!--<form name="reqRegister" method="post" action="/board/register">-->
-<!--    <input type="text" name="seq" value="0">-->
-<!--    <input type="text" name="balance">-->
-<!--</form>-->
 
 <article class="my-3" id="tables">
     <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
@@ -52,7 +46,8 @@
                     </tbody>
                 </table>
             </div>
-            <button type="button" class="btn btn-primary" onclick="register()">등록</button>
+            <button type="button" class="btn btn-primary" onclick="deposit()">입금</button>
+            <button type="button" class="btn btn-primary" onclick="withdraw()">출금</button>
         </div>
     </form>
 </article>

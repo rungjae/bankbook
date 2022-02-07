@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>입금내역등록</title>
+    <script>
+        function depositdo() {
+            alert("등록되었습니다.");
+            const frm = document.frm;
+            frm.setAttribute("method","post");
+            frm.setAttribute("action","/board/depositdo");
+            frm.submit();
+        }
+        function gotolist(){
+            window.location.href="/board/list";
+        }
+    </script>
+
+</head>
+<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/cheatsheet.css" rel="stylesheet">
+<body>
+<article class="my-3" id="overview">
+    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
+        <h3>입금내역등록</h3>
+    </div>
+    <div>
+        <div class="bd-example">
+            <form name="frm">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">입금자</label>
+                    <input name= "use" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">금액</label>
+                    <input name= "price" type="text" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="depositdo()">등록</button>
+                <button type="submit" class="btn btn-primary" onclick="gotolist()">목록으로가기</button>
+            </form>
+        </div>
+    </div>
+</article>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cheatsheet.js"></script>
+</body>
+</html>

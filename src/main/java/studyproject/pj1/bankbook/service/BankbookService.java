@@ -22,13 +22,15 @@ public class BankbookService {
         return bankbookMapper.findUse(seq);
     }
     public List<BankbookDTO> addUse(BankbookDTO dto){
-        //만약 입출금 선택시 입금이면 기존 balance + price 출금일시 balance - price
+        //만약 입출금 선택시 입금이면 기존 balance + price 출금일시 balance - price 구현필요..
         int result =  bankbookMapper.addUse(dto);
-        String updateResult = "회원 추가 실패";
+        String updateResult = "내역등록 실패";
         if(result > 0) {
-            updateResult = "회원 추가 성공";
+            updateResult = "내역등록 성공";
         }
         log.info(updateResult);
+
+//        int resultPrice = dto.getBalance() + ;
         return bankbookMapper.findUseAll();
     }
 }

@@ -23,28 +23,34 @@ public class BankbookController {
         mv.setViewName("board.html");
         return mv;
     }
-    //내역 등록 화면
-    @GetMapping(value = "/board/register")
-    public ModelAndView bankbookRegister(ModelAndView mv) {
-        log.info("register 실행");
-        mv.setViewName("register.html");
+    //입금 등록 화면
+    @GetMapping(value = "/board/deposit")
+    public ModelAndView bankbookDeposit(ModelAndView mv) {
+        log.info("deposit 실행");
+        mv.setViewName("deposit.html");
         return mv;
     }
-    //내역 등록 실행
-    @PostMapping(value = "/board/insert")
-    public ModelAndView bankbookInsert(ModelAndView mv, BankbookDTO dto) {
-        log.info("Insert 실행");
+    //입금 실행
+    @PostMapping(value = "/board/depositdo")
+    public ModelAndView bankbookDepositDo(ModelAndView mv, BankbookDTO dto) {
+        log.info("depositdo 실행");
         mv.addObject("useList", bankbookService.addUse(dto));
         mv.setViewName("redirect:/board/list");
         return mv;
     }
-
-//    @GetMapping(value = "/board/register")
-//    public ModelAndView bankbookRegister(ModelAndView mv, int seq) {
-//        log.info("register 실행");
-//        mv.addObject("use", bankbookService.fineUse(seq));
-//        mv.setViewName("/register.html");
-//        return mv;
-//    }
-
+    //출금 등록 화면
+    @GetMapping(value = "/board/withdraw")
+    public ModelAndView bankbookWithdraw(ModelAndView mv) {
+        log.info("withdraw 실행");
+        mv.setViewName("withdraw.html");
+        return mv;
+    }
+    //출금 실행
+    @PostMapping(value = "/board/withdrawdo")
+    public ModelAndView bankbookWithdrawDo(ModelAndView mv, BankbookDTO dto) {
+        log.info("withdrawdo 실행");
+        mv.addObject("useList", bankbookService.addUse(dto));
+        mv.setViewName("redirect:/board/list");
+        return mv;
+    }
 }

@@ -4,14 +4,17 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>내역등록</title>
+    <title>출금내역등록</title>
     <script>
-        function insert() {
+        function withdrawdo() {
             alert("등록되었습니다.");
             const frm = document.frm;
             frm.setAttribute("method","post");
-            frm.setAttribute("action","/board/insert");
+            frm.setAttribute("action","/board/withdrawdo");
             frm.submit();
+        }
+        function gotolist(){
+            window.location.href="/board/list";
         }
     </script>
 
@@ -21,28 +24,21 @@
 <body>
 <article class="my-3" id="overview">
     <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-        <h3>내역등록</h3>
+        <h3>출금내역등록</h3>
     </div>
     <div>
         <div class="bd-example">
-            <form name="frm" action="/board/insert" method="post">
+            <form name="frm">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">사용처</label>
                     <input name= "use" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">입/출금</label>
-                    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                        <option selected>입출금 선택</option>
-                        <option value="1">입금</option>
-                        <option value="2">출금</option>
-                    </select>
-                </div>
-                <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">금액</label>
                     <input name= "price" type="text" class="form-control" id="exampleInputPassword1">
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="insert()">등록</button>
+                <button type="submit" class="btn btn-primary" onclick="withdrawdo()">등록</button>
+                <button type="submit" class="btn btn-primary" onclick="gotolist()">목록으로가기</button>
             </form>
         </div>
     </div>
