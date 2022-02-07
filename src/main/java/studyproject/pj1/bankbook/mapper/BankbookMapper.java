@@ -13,7 +13,7 @@ public interface BankbookMapper {
     @Select("SELECT * FROM BANKBOOK WHERE SEQ = #{seq}")
     BankbookDTO findUse(Long seq);
 
-    @Insert("INSERT INTO BANKBOOK(use, daw, price, balance, payment_time) VALUES (#{use}, #{daw}, #{price}, #{balance}, now())")
+    @Insert("INSERT INTO BANKBOOK(use, daw, price, balance, paymentTime) VALUES (#{use}, #{daw}, #{price}, #{balance}, now())")
     @Options(useGeneratedKeys = true, keyProperty = "seq")
     int addUse(BankbookDTO dto);
     //현재 잔액 업데이트용

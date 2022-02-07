@@ -18,12 +18,14 @@
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
 <article class="my-3" id="tables">
-    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-        <h3>모임 통장 입출금 내역</h3>
+    <div class="out">
+        <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2 in">
+            <h3>모임 통장 입출금 내역</h3>
+        </div>
     </div>
     <form>
-        <div>
-            <div class="bd-example">
+        <div class="out">
+            <div class="bd-example in">
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -42,13 +44,13 @@
                         <td th:text="${list.daw}"></td>
                         <td th:text="${list.price}"></td>
                         <td th:text="${list.balance}"></td>
-                        <td th:text="${list.payment_time}"></td>
+                        <td th:text="${#temporals.format(list.paymentTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
                     </tr>
                     </tbody>
                 </table>
+                <button type="button" class="btn btn-primary" onclick="deposit()">입금</button>
+                <button type="button" class="btn btn-primary" onclick="withdraw()">출금</button>
             </div>
-            <button type="button" class="btn btn-primary" onclick="deposit()">입금</button>
-            <button type="button" class="btn btn-primary" onclick="withdraw()">출금</button>
         </div>
     </form>
 </article>

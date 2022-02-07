@@ -6,6 +6,21 @@ body {
  * Bootstrap "Journal code" icon
  * @link https://icons.getbootstrap.com/icons/journal-code/
  */
+.out {
+  width: 100%;
+  text-align: center;
+}
+
+.in {
+  width: 70%;
+  display: inline-block;
+}
+
+.in-narrow {
+  width: 30%;
+  display: inline-block;
+}
+
 .bd-heading a::before {
   display: inline-block;
   width: 1em;

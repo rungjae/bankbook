@@ -13,5 +13,5 @@ public class BankbookDTO {
     private String daw;
     private int price;
     private int balance;
-    private LocalDateTime payment_time;
+    private LocalDateTime paymentTime;
 }
