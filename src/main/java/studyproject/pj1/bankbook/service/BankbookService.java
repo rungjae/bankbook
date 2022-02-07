@@ -11,16 +11,24 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-
+/**
+ * 서비스를 묶어놓은 클래스
+ * 내역보여주기 / 입금 / 출금 서비스
+ * @author  Lee Jaeseong
+ */
 public class BankbookService {
     private final BankbookMapper bankbookMapper;
-    //내역 리스트 보여주기
+    /**
+     * BANKBOOK 테이블 내 모든 행 반환
+     * 전체 내역 리스트 출력
+     */
     public List<BankbookDTO> allUseList() {
         return bankbookMapper.findUseAll();
     }
-    public BankbookDTO fineUse(Long seq) {
-        return bankbookMapper.findUse(seq);
-    }
+    /**
+     * BANKBOOK 테이블 내 모든 행 반환
+     * 전체 내역 리스트 출력
+     */
     public List<BankbookDTO> depositUse(BankbookDTO dto){
         //입금이면 (이전balance) + (현재입력price)
         dto.setDaw("입금");
