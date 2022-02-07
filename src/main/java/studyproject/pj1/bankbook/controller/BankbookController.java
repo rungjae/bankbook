@@ -12,25 +12,38 @@ import studyproject.pj1.bankbook.service.BankbookService;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
-
+/**
+ * 서비스를 제어하는 클래스
+ *
+ * @author  Lee Jaeseong
+ * @version 1.0
+ * @see     None
+ */
 public class BankbookController {
     private final BankbookService bankbookService;
-    //통장 전체 리스트 화면
-    @GetMapping(value = "/board/list")
-    public ModelAndView bankbookList(ModelAndView mv) {
-        log.info("List실행");
-        mv.addObject("useList", bankbookService.allUseList());
-        mv.setViewName("board.html");
-        return mv;
-    }
-    //입금 등록 화면
+    /**
+     * 입금내역 화면 출력
+     *
+     * @param mv 모델앤뷰
+     * @return 내역의 행 정보 반환
+     * @exception None
+     * @see  None
+     */
     @GetMapping(value = "/board/deposit")
     public ModelAndView bankbookDeposit(ModelAndView mv) {
         log.info("deposit 실행");
         mv.setViewName("deposit.html");
         return mv;
     }
-    //입금 실행
+    /**
+     * 입금내역 등록 실행
+     *
+     * @param mv 모델앤뷰
+     * @param dto 얻고자하는 한건의 내역정보
+     * @return 내역의 행 정보 반환
+     * @exception None
+     * @see  None
+     */
     @PostMapping(value = "/board/depositdo")
     public ModelAndView bankbookDepositDo(ModelAndView mv, BankbookDTO dto) {
         log.info("depositdo 실행");
@@ -38,14 +51,29 @@ public class BankbookController {
         mv.setViewName("redirect:/board/list");
         return mv;
     }
-    //출금 등록 화면
+    /**
+     * 출금내역 화면 출력
+     *
+     * @param mv 모델앤뷰
+     * @return 내역의 행 정보 반환
+     * @exception None
+     * @see  None
+     */
     @GetMapping(value = "/board/withdraw")
     public ModelAndView bankbookWithdraw(ModelAndView mv) {
         log.info("withdraw 실행");
         mv.setViewName("withdraw.html");
         return mv;
     }
-    //출금 실행
+    /**
+     * 출금내역 등록 실행
+     *
+     * @param mv 모델앤뷰
+     * @param dto 얻고자하는 한건의 내역정보
+     * @return 내역의 행 정보 반환
+     * @exception None
+     * @see  None
+     */
     @PostMapping(value = "/board/withdrawdo")
     public ModelAndView bankbookWithdrawDo(ModelAndView mv, BankbookDTO dto) {
         log.info("withdrawdo 실행");
