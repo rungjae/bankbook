@@ -42,14 +42,13 @@ public class BankbookService {
     public List<BankbookDTO> withdrawUse(BankbookDTO dto){
         //출금일시 (이전balance) - (현재입력price)
         log.info(String.valueOf(dto.getSeq()));
-
+        int result =  bankbookMapper.addUse(dto);
         BankbookDTO previousDto = bankbookMapper.findUse(dto.getSeq()-1); //바로이전 입력 한 dto생성
         //잔액보다 많은 금액 출금시
         if(previousDto.getBalance() < dto.getPrice()) {
             String withdrawResult = "잔액이 부족합니다.";
             log.info(withdrawResult);
         }else{
-            int result =  bankbookMapper.addUse(dto);
             bankbookMapper.upBalance(previousDto.getBalance()-dto.getPrice(), dto.getSeq()); //이전 잔액 + 현재 입력 금액 = 현재 잔액으로 표시
             String updateResult = "내역등록 실패";
             if(result > 0) {
