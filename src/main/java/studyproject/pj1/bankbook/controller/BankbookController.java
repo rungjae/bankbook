@@ -34,7 +34,7 @@ public class BankbookController {
     @PostMapping(value = "/board/depositdo")
     public ModelAndView bankbookDepositDo(ModelAndView mv, BankbookDTO dto) {
         log.info("depositdo 실행");
-        mv.addObject("useList", bankbookService.addUse(dto));
+        mv.addObject("useList", bankbookService.depositUse(dto));
         mv.setViewName("redirect:/board/list");
         return mv;
     }
@@ -49,7 +49,7 @@ public class BankbookController {
     @PostMapping(value = "/board/withdrawdo")
     public ModelAndView bankbookWithdrawDo(ModelAndView mv, BankbookDTO dto) {
         log.info("withdrawdo 실행");
-        mv.addObject("useList", bankbookService.addUse(dto));
+        mv.addObject("useList", bankbookService.withdrawUse(dto));
         mv.setViewName("redirect:/board/list");
         return mv;
     }

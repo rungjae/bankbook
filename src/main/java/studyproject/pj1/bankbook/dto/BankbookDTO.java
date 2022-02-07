@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class BankbookDTO {
-    private int seq;
+    private Long seq;
     private String use;
     private int price;
     private int balance;
