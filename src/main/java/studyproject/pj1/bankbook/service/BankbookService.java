@@ -23,8 +23,7 @@ public class BankbookService {
     }
     public List<BankbookDTO> depositUse(BankbookDTO dto){
         //입금이면 (이전balance) + (현재입력price)
-        log.info(String.valueOf(dto.getSeq()));
-
+        dto.setDaw("입금");
         int result =  bankbookMapper.addUse(dto);
         String updateResult = "내역등록 실패";
         if(result > 0) {
@@ -41,7 +40,7 @@ public class BankbookService {
     }
     public List<BankbookDTO> withdrawUse(BankbookDTO dto){
         //출금일시 (이전balance) - (현재입력price)
-        log.info(String.valueOf(dto.getSeq()));
+        dto.setDaw("출금");
         int result =  bankbookMapper.addUse(dto);
         BankbookDTO previousDto = bankbookMapper.findUse(dto.getSeq()-1); //바로이전 입력 한 dto생성
         //잔액보다 많은 금액 출금시
@@ -56,10 +55,10 @@ public class BankbookService {
             }
             log.info(updateResult);
         }
-//        log.info("service seq : {}" , dto.getSeq());
-//        log.info("result seq2 : {}" , dto.getSeq()-1);
-//        log.info("previousDto.getBalance() : {}" , previousDto.getBalance());
-//        log.info("minus : {}" , previousDto.getBalance()-dto.getPrice());
+        log.info("service seq : {}" , dto.getSeq());
+        log.info("result seq2 : {}" , dto.getSeq()-1);
+        log.info("previousDto.getBalance() : {}" , previousDto.getBalance());
+        log.info("minus : {}" , previousDto.getBalance()-dto.getPrice());
         return bankbookMapper.findUseAll();
     }
 }

@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class BankbookDTO {
     private Long seq;
     private String use;
+    private String daw;
     private int price;
     private int balance;
     private LocalDateTime payment_time;

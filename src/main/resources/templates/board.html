@@ -37,6 +37,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">사용처</th>
+                        <th scope="col">입/출금</th>
                         <th scope="col">금액</th>
                         <th scope="col">잔액</th>
                         <th scope="col">결제시간</th>
@@ -46,6 +47,7 @@
                     <tr th:each="list : ${useList}">
                         <td th:text="${list.seq}"></td>
                         <td th:text="${list.use}"></td>
+                        <td th:text="${list.daw}"></td>
                         <td th:text="${list.price}"></td>
                         <td th:text="${list.balance}"></td>
                         <td th:text="${list.payment_time}"></td>
