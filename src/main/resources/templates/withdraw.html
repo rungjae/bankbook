@@ -7,11 +7,21 @@
     <title>💸출금내역등록💸</title>
     <script>
         function withdrawdo() {
-            alert("등록되었습니다.");
-            const frm = document.frm;
-            frm.setAttribute("method","post");
-            frm.setAttribute("action","/board/withdrawdo");
-            frm.submit();
+            if (document.getElementById("use").value == "") {
+                alert("사용처를 입력해 주세요.");
+                document.getElementById("use").focus();
+                return false;
+            } else if (document.getElementById("price").value == "") {
+                alert("금액을 입력해 주세요.");
+                document.getElementById("price").focus();
+                return false;
+            } else {
+                alert("등록되었습니다.");
+                const frm = document.frm;
+                frm.setAttribute("method", "post");
+                frm.setAttribute("action", "/board/withdrawdo");
+                frm.submit();
+            }
         }
         function gotolist(){
             window.location.href="/board/list";
@@ -32,11 +42,11 @@
                 <br>
                 <div class="mb-3" style="width: 100%">
                     <label class="form-label">사용처</label>
-                    <input name= "use" type="text" class="form-control" aria-describedby="emailHelp" required>
+                    <input name= "use" id="use" type="text" class="form-control" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3" style="width: 100%">
                     <label class="form-label">금액</label>
-                    <input name= "price" type="text" class="form-control" required>
+                    <input name= "price" id="price" type="text" class="form-control" required>
                 </div>
                 <br>
                 <div style="display: flex; justify-content: center">

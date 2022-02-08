@@ -7,17 +7,27 @@
     <title>💵입금내역등록💵</title>
     <script>
         function depositdo() {
-            alert("등록되었습니다.");
-            const frm = document.frm;
-            frm.setAttribute("method","post");
-            frm.setAttribute("action","/board/depositdo");
-            frm.submit();
+            if (document.getElementById("use").value == "") {
+                alert("입금자를 입력해 주세요.");
+                document.getElementById("use").focus();
+                return false;
+            } else if (document.getElementById("price").value == "") {
+                alert("금액을 입력해 주세요.");
+                document.getElementById("price").focus();
+                return false;
+            } else {
+                alert("등록되었습니다.");
+                const frm = document.frm;
+                frm.setAttribute("method", "post");
+                frm.setAttribute("action", "/board/depositdo");
+                frm.submit();
+                return true;
+            }
         }
-        function gotolist(){
-            window.location.href="/board/list";
+        function gotolist() {
+            window.location.href = "/board/list";
         }
     </script>
-
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
@@ -26,29 +36,29 @@
     <div class="bd-heading sticky-xl-top mt-5 mb-3 mt-xl-0 mb-xl-2">
         <h3>💵입금내역등록💵</h3>
     </div>
+    <br>
+    </div>
+    <div class="bd-example outline" style="width: 40%; display: flex; justify-content: center">
+        <form name="frm" style="width: 90%">
+            <input name="seq" type="hidden">
+            <br>
+            <div class="mb-3" style="width: 100%">
+                <label class="form-label">입금자</label>
+                <input name="use" id="use" type="text" class="form-control" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3" style="width: 100%">
+                <label class="form-label">금액</label>
+                <input name="price" id="price" type="text" class="form-control" required>
+            </div>
+            <br>
+            <div style="display: flex; justify-content: center">
+                <button type="submit" class="btn btn-primary" onclick="depositdo()">등록</button>&nbsp;
+                <button type="submit" class="btn btn-secondary" onclick="gotolist()">목록으로가기</button>
+            </div>
+            <br>
+        </form>
         <br>
     </div>
-        <div class="bd-example outline" style="width: 40%; display: flex; justify-content: center">
-            <form name="frm" style="width: 90%">
-                <input name="seq" type="hidden">
-                    <br>
-                    <div class="mb-3" style="width: 100%">
-                        <label class="form-label">입금자</label>
-                        <input name= "use" type="text" class="form-control" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="mb-3" style="width: 100%">
-                        <label class="form-label">금액</label>
-                        <input name= "price" type="text" class="form-control" required>
-                    </div>
-                    <br>
-                <div style="display: flex; justify-content: center">
-                    <button type="submit" class="btn btn-primary" onclick="depositdo()">등록</button>&nbsp;
-                    <button type="submit" class="btn btn-secondary" onclick="gotolist()">목록으로가기</button>
-                </div>
-                <br>
-            </form>
-            <br>
-        </div>
 </article>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
