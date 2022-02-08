@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import studyproject.pj1.bankbook.dto.BankbookDTO;
 import studyproject.pj1.bankbook.service.BankbookService;
@@ -12,6 +13,7 @@ import studyproject.pj1.bankbook.service.BankbookService;
 @Controller
 @Slf4j
 @RequiredArgsConstructor
+@RequestMapping("/board")
 /**
  * 서비스를 제어하는 클래스
  *
@@ -29,7 +31,7 @@ public class BankbookController {
      * @exception None
      * @see  None
      */
-    @GetMapping(value = "/board/deposit")
+    @GetMapping(value = "/deposit")
     public ModelAndView bankbookDeposit(ModelAndView mv) {
         log.info("deposit 실행");
         mv.setViewName("deposit.html");
@@ -44,7 +46,7 @@ public class BankbookController {
      * @exception None
      * @see  None
      */
-    @PostMapping(value = "/board/depositdo")
+    @PostMapping(value = "/depositdo")
     public ModelAndView bankbookDepositDo(ModelAndView mv, BankbookDTO dto) {
         log.info("depositdo 실행");
         mv.addObject("useList", bankbookService.depositUse(dto));
@@ -59,7 +61,7 @@ public class BankbookController {
      * @exception None
      * @see  None
      */
-    @GetMapping(value = "/board/withdraw")
+    @GetMapping(value = "/withdraw")
     public ModelAndView bankbookWithdraw(ModelAndView mv) {
         log.info("withdraw 실행");
         mv.setViewName("withdraw.html");
@@ -74,7 +76,7 @@ public class BankbookController {
      * @exception None
      * @see  None
      */
-    @PostMapping(value = "/board/withdrawdo")
+    @PostMapping(value = "/withdrawdo")
     public ModelAndView bankbookWithdrawDo(ModelAndView mv, BankbookDTO dto) {
         log.info("withdrawdo 실행");
         mv.addObject("useList", bankbookService.withdrawUse(dto));

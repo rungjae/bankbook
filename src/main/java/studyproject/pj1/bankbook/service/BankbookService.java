@@ -34,10 +34,10 @@ public class BankbookService {
     }
     /**
      * 입금 내역 계산 서비스
-     * @param dto 얻고자하는 한건의 내역정보
-     * @return 입금 계산을 마친 내역 행을 반환
+     * @param   dto 얻고자하는 한건의 내역정보
+     * @return  입금 계산을 마친 내역 행을 반환
      * @exception None
-     * @see  None
+     * @see     None
      */
     public List<BankbookDTO> depositUse(BankbookDTO dto){
         log.info("입금내역 계산 실행");
@@ -57,10 +57,10 @@ public class BankbookService {
     }
     /**
      * 출금 내역 계산 서비스
-     * @param dto 얻고자하는 한건의 내역정보
-     * @return 출금 계산을 마친 내역 행을 반환
+     * @param   dto 얻고자하는 한건의 내역정보
+     * @return  출금 계산을 마친 내역 행을 반환
      * @exception None
-     * @see  None
+     * @see     None
      */
     public List<BankbookDTO> withdrawUse(BankbookDTO dto){
         log.info("출금내역 계산 실행");
