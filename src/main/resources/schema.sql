@@ -5,9 +5,7 @@ CREATE TABLE bankbook(
                       price int NOT NULL,  -- 금액
                       balance int, -- 잔액
                       paymentTime datetime DEFAULT NULL, -- 결제시간
---                       create_at datetime NOT NULL DEFAULT CURRENT_TIMESTAMP(),
                       PRIMARY KEY (seq)
---                       CONSTRAINT unq_user_email UNIQUE(email)
 );
 
 INSERT INTO bankbook(use, daw, price, balance, paymentTime) VALUES ('스타벅스','출금',50000,250000,now());

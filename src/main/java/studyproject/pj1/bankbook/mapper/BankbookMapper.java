@@ -19,5 +19,4 @@ public interface BankbookMapper {
     //현재 잔액 업데이트용
     @Update("UPDATE BANKBOOK SET balance = #{balance} WHERE seq = #{seq}")
     int upBalance(int balance, Long seq);
-
 }

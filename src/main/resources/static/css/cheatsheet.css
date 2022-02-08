@@ -26,6 +26,15 @@ body {
   border-color: #bcbebf;
 }
 
+.register-outline {
+  border-style: solid;
+  border-color: #bcbebf;
+  background-color: #cfe2ff;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
 .bd-heading a::before {
   display: inline-block;
   width: 1em;
