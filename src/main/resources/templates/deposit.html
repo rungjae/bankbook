@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>입금내역등록</title>
+    <title>💵입금내역등록💵</title>
     <script>
         function depositdo() {
             alert("등록되었습니다.");
@@ -22,14 +22,12 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
-<article class="my-3">
-    <div>
-    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-        <h3>입금내역등록</h3>
+<article class="my-3" style="display: flex; justify-content: center; flex-direction: column; align-items: center">
+    <div class="bd-heading sticky-xl-top mt-5 mb-3 mt-xl-0 mb-xl-2">
+        <h3>💵입금내역등록💵</h3>
     </div>
         <br>
     </div>
-    <div>
         <div class="bd-example outline" style="width: 40%; display: flex; justify-content: center">
             <form name="frm" style="width: 90%">
                 <input name="seq" type="hidden">
@@ -45,13 +43,12 @@
                     <br>
                 <div style="display: flex; justify-content: center">
                     <button type="submit" class="btn btn-primary" onclick="depositdo()">등록</button>&nbsp;
-                    <button type="submit" class="btn btn-primary" onclick="gotolist()">목록으로가기</button>
+                    <button type="submit" class="btn btn-secondary" onclick="gotolist()">목록으로가기</button>
                 </div>
                 <br>
             </form>
             <br>
         </div>
-    </div>
 </article>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>

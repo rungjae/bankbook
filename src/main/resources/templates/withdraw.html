@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>출금내역등록</title>
+    <title>💸출금내역등록💸</title>
     <script>
         function withdrawdo() {
             alert("등록되었습니다.");
@@ -22,12 +22,11 @@
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
-<article class="my-3" id="overview">
-    <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
-        <h3>출금내역등록</h3>
+<article class="my-3" style="display: flex; justify-content: center; flex-direction: column; align-items: center">
+    <div class="bd-heading sticky-xl-top mt-5 mb-3 mt-xl-0 mb-xl-2">
+        <h3>💸출금내역등록💸</h3>
     </div>
     <br>
-    <div>
         <div class="bd-example outline" style="width: 40%; display: flex; justify-content: center">
             <form name="frm" style="width: 90%">
                 <br>
@@ -42,13 +41,12 @@
                 <br>
                 <div style="display: flex; justify-content: center">
                     <button type="submit" class="btn btn-primary" onclick="withdrawdo()">등록</button>&nbsp;
-                    <button type="submit" class="btn btn-primary" onclick="gotolist()">목록으로가기</button>
+                    <button type="submit" class="btn btn-secondary" onclick="gotolist()">목록으로가기</button>
                 </div>
                 <br>
             </form>
             <br>
         </div>
-    </div>
 </article>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
