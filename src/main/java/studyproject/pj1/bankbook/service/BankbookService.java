@@ -49,10 +49,16 @@ public class BankbookService {
         }
         log.info(updateResult);
         /**
-         * 마지막 입력된 행의 정보
+         * previousDto 마지막 입력된 행의 정보
          */
-        BankbookDTO previousDto = bankbookMapper.findUse(dto.getSeq()-1); //바로이전 입력 한 dto생성
-        bankbookMapper.upBalance(previousDto.getBalance()+dto.getPrice(), dto.getSeq()); //이전 잔액 + 현재 입력 금액 = 현재 잔액으로 표시
+        BankbookDTO previousDto = bankbookMapper.findUse(dto.getSeq()-1);
+        /**
+         * previousBal 마지막에 등록된 잔액
+         * inputPrice 현재 입력한 금액
+         */
+        int previousBal = previousDto.getBalance();
+        int inputPrice = dto.getPrice();
+        bankbookMapper.upBalance(previousBal+inputPrice, dto.getSeq());
         return bankbookMapper.findUseAll();
     }
     /**
@@ -67,15 +73,21 @@ public class BankbookService {
         dto.setDaw("출금");
         int result =  bankbookMapper.addUse(dto);
         /**
-         * 마지막 입력된 행의 정보
+         * previousDto 마지막 입력된 행의 정보
          */
         BankbookDTO previousDto = bankbookMapper.findUse(dto.getSeq()-1);
+        /**
+         * previousBal 마지막에 등록된 잔액
+         * inputPrice 현재 입력한 금액
+         */
+        int previousBal = previousDto.getBalance();
+        int inputPrice = dto.getPrice();
 
-        if(previousDto.getBalance() < dto.getPrice()) {
+        if(previousBal < inputPrice) {
             String withdrawResult = "잔액이 부족합니다.";
             log.info(withdrawResult);
         }else{
-            bankbookMapper.upBalance(previousDto.getBalance()-dto.getPrice(), dto.getSeq()); //이전 잔액 + 현재 입력 금액 = 현재 잔액으로 표시
+            bankbookMapper.upBalance(previousBal-inputPrice, dto.getSeq());
             String updateResult = "내역등록 실패";
             if(result > 0) {
                 updateResult = "내역등록 성공";

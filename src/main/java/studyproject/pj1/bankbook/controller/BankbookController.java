@@ -32,7 +32,7 @@ public class BankbookController {
      * @see  None
      */
     @GetMapping(value = "/deposit")
-    public ModelAndView bankbookDeposit(ModelAndView mv) {
+    public ModelAndView Deposit(ModelAndView mv) {
         log.info("deposit 실행");
         mv.setViewName("deposit.html");
         return mv;
@@ -47,7 +47,7 @@ public class BankbookController {
      * @see  None
      */
     @PostMapping(value = "/depositdo")
-    public ModelAndView bankbookDepositDo(ModelAndView mv, BankbookDTO dto) {
+    public ModelAndView DepositDo(ModelAndView mv, BankbookDTO dto) {
         log.info("depositdo 실행");
         mv.addObject("useList", bankbookService.depositUse(dto));
         mv.setViewName("redirect:/board/list");
@@ -62,7 +62,7 @@ public class BankbookController {
      * @see  None
      */
     @GetMapping(value = "/withdraw")
-    public ModelAndView bankbookWithdraw(ModelAndView mv) {
+    public ModelAndView Withdraw(ModelAndView mv) {
         log.info("withdraw 실행");
         mv.setViewName("withdraw.html");
         return mv;
@@ -77,7 +77,7 @@ public class BankbookController {
      * @see  None
      */
     @PostMapping(value = "/withdrawdo")
-    public ModelAndView bankbookWithdrawDo(ModelAndView mv, BankbookDTO dto) {
+    public ModelAndView WithdrawDo(ModelAndView mv, BankbookDTO dto) {
         log.info("withdrawdo 실행");
         mv.addObject("useList", bankbookService.withdrawUse(dto));
         mv.setViewName("redirect:/board/list");

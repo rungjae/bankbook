@@ -29,7 +29,7 @@ public class MainController {
      * @see     None
      */
     @GetMapping(value = {"/board/list" ,"", "/"})
-    public ModelAndView bankbookList(ModelAndView mv) {
+    public ModelAndView List(ModelAndView mv) {
         log.info("List실행");
         mv.addObject("useList", bankbookService.allUseList());
         mv.setViewName("board.html");

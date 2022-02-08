@@ -26,20 +26,27 @@
     <div class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mt-xl-0 mb-xl-2">
         <h3>출금내역등록</h3>
     </div>
+    <br>
     <div>
-        <div class="bd-example">
-            <form name="frm">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">사용처</label>
-                    <input name= "use" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div class="bd-example outline" style="width: 40%; display: flex; justify-content: center">
+            <form name="frm" style="width: 90%">
+                <br>
+                <div class="mb-3" style="width: 100%">
+                    <label class="form-label">사용처</label>
+                    <input name= "use" type="text" class="form-control" aria-describedby="emailHelp" required>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">금액</label>
-                    <input name= "price" type="text" class="form-control" id="exampleInputPassword1">
+                <div class="mb-3" style="width: 100%">
+                    <label class="form-label">금액</label>
+                    <input name= "price" type="text" class="form-control" required>
                 </div>
-                <button type="submit" class="btn btn-primary" onclick="withdrawdo()">등록</button>
-                <button type="submit" class="btn btn-primary" onclick="gotolist()">목록으로가기</button>
+                <br>
+                <div style="display: flex; justify-content: center">
+                    <button type="submit" class="btn btn-primary" onclick="withdrawdo()">등록</button>&nbsp;
+                    <button type="submit" class="btn btn-primary" onclick="gotolist()">목록으로가기</button>
+                </div>
+                <br>
             </form>
+            <br>
         </div>
     </div>
 </article>

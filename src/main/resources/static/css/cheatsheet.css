@@ -21,6 +21,11 @@ body {
   display: inline-block;
 }
 
+.outline {
+  border-style: solid;
+  border-color: #bcbebf;
+}
+
 .bd-heading a::before {
   display: inline-block;
   width: 1em;
