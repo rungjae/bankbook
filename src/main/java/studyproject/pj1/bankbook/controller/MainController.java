@@ -31,7 +31,7 @@ public class MainController {
     public ModelAndView ListPage(ModelAndView mv) {
         log.info("List실행");
         mv.addObject("useList", bankbookService.allUseList());
-        mv.setViewName("board.html");
+        mv.setViewName("board");
         return mv;
     }
 }

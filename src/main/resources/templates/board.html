@@ -5,17 +5,25 @@
 <head>
     <meta charset="UTF-8">
     <title>💰모임통장💰</title>
+    <!— Bootstrap core CSS —>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!— Custom styles for this template —>
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+
+    <!— jquery webjars add —>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        function deposit() {
-            window.location.href="/board/deposit";
-        }
-        function  withdraw(){
-            window.location.href="/board/withdraw";
-        }
+        $(document).ready(function () {
+            $(".goDeposit").on("click", function () {
+                $(location).attr("href", "/board/deposit");
+            });
+            $(".goWithdraw").on("click", function () {
+                $(location).attr("href", "/board/withdraw");
+            });
+        });
     </script>
 </head>
-<link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/cheatsheet.css" rel="stylesheet">
 <body>
 <article class="my-3" id="tables">
     <div class="out">
@@ -35,6 +43,7 @@
                         <th scope="col">금액</th>
                         <th scope="col">잔액</th>
                         <th scope="col">결제시간</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -45,16 +54,18 @@
                         <td th:text="${list.price}"></td>
                         <td th:text="${list.balance}"></td>
                         <td th:text="${#temporals.format(list.paymentTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
+                        <td><button type="button" class="btn btn-primary" onclick="">내역</button></td>
                     </tr>
                     </tbody>
                 </table>
-                <button type="button" class="btn btn-primary" onclick="deposit()">입금</button>
-                <button type="button" class="btn btn-danger" onclick="withdraw()">출금</button>
+                <button type="button" class="btn btn-primary goDeposit">입금</button>
+                <button type="button" class="btn btn-danger goWithdraw">출금</button>
             </div>
         </div>
     </form>
 </article>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
+<script src="/js/bankbook-validation.js"></script>
 </body>
 </html>

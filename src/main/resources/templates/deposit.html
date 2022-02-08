@@ -5,6 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>💵입금내역등록💵</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!— Custom styles for this template —>
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+
+    <!— jquery webjars add —>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
     <script>
         function depositdo() {
             if (document.getElementById("use").value == "") {
@@ -27,6 +34,24 @@
         function gotolist() {
             window.location.href = "/board/list";
         }
+        $(document).ready(function () {
+            //등록 이벤트 진행
+            $("#registerInfo").on("click", function () {
+                if(invalid() == true){
+                    $("#price").removeClass('is-invalid');
+                    // 아래는 비동기 처리
+                    $.post("/board/depositdo", $("form[name=frm]").serialize() , function (data) {
+                        alert(data);
+                        if(data.search('성공') > 0){
+                            $(location).attr("href", "/board/list");
+                        }
+                    });
+                }
+            });
+            $(".gotolist").on("click", function () {
+                $(location).attr("href", "/board/list");
+            });
+        });
     </script>
 </head>
 <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +65,6 @@
     </div>
     <div class="bd-example register-outline" style="width: 40%; display: flex; justify-content: center">
         <form name="frm" style="width: 90%">
-            <input name="seq" type="hidden">
             <br>
             <div class="mb-3" style="width: 100%">
                 <label class="form-label">입금자</label>
@@ -48,12 +72,18 @@
             </div>
             <div class="mb-3" style="width: 100%">
                 <label class="form-label">금액</label>
-                <input name="price" id="price" type="text" class="form-control" placeholder="금액을 입력해주세요(숫자만입력)" required>
+                <input name="price" id="price" type="text" class="form-control" onkeyup="invalid()" placeholder="금액을 입력해주세요(숫자만입력)" required>
+                <div class="valid-feedback">
+                    입력 완료.
+                </div>
+                <div class="invalid-feedback price-feedback">
+                    금액을 똑바로 입력 하세요.
+                </div>
             </div>
             <br>
             <div style="display: flex; justify-content: center">
-                <button type="submit" class="btn btn-primary" onclick="depositdo()">등록</button>&nbsp;
-                <button type="submit" class="btn btn-secondary" onclick="gotolist()">목록으로가기</button>
+                <button type="submit" class="btn btn-primary" id="registerInfo">등록</button>&nbsp;
+                <button type="submit" class="btn btn-secondary gotolist">목록으로가기</button>
             </div>
             <br>
         </form>
@@ -62,5 +92,6 @@
 </article>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
+<script src="/js/bankbook-validation.js"></script>
 </body>
 </html>
