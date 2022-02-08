@@ -32,7 +32,7 @@ public class BankbookController {
      * @see  None
      */
     @GetMapping(value = "/deposit")
-    public ModelAndView Deposit(ModelAndView mv) {
+    public ModelAndView DepositPage(ModelAndView mv) {
         log.info("deposit 실행");
         mv.setViewName("deposit.html");
         return mv;
@@ -62,7 +62,7 @@ public class BankbookController {
      * @see  None
      */
     @GetMapping(value = "/withdraw")
-    public ModelAndView Withdraw(ModelAndView mv) {
+    public ModelAndView WithdrawPage(ModelAndView mv) {
         log.info("withdraw 실행");
         mv.setViewName("withdraw.html");
         return mv;
