@@ -7,7 +7,7 @@ function invalid(){
     let priceValid = true;
     // let passwdValid = true;
 
-    const regPrice = /^[0-9]*$/;; //숫자만입력
+    const regPrice = /^[0-9]*$/; //숫자만입력
     // const regPasswd = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
 
     //금액 형식 확인

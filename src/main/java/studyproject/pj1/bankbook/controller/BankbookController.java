@@ -32,7 +32,7 @@ public class BankbookController {
      * @see  None
      */
     @GetMapping(value = "/deposit")
-    public ModelAndView DepositPage(ModelAndView mv) {
+    public ModelAndView depositPage(ModelAndView mv) {
         log.info("deposit 실행");
         mv.setViewName("deposit");
         return mv;
@@ -46,9 +46,23 @@ public class BankbookController {
      * @see  None
      */
     @GetMapping(value = "/withdraw")
-    public ModelAndView WithdrawPage(ModelAndView mv) {
+    public ModelAndView withdrawPage(ModelAndView mv) {
         log.info("withdraw 실행");
         mv.setViewName("withdraw");
+        return mv;
+    }
+    /**
+     * 입/출금 건마다의 상세 내역 화면 출력
+     *
+     * @param mv 모델앤뷰
+     * @return 내역의 행 정보 반환
+     * @exception None
+     * @see  None
+     */
+    @GetMapping(value = "/history")
+    public ModelAndView historyPage(ModelAndView mv) {
+        log.info("history 실행");
+        mv.setViewName("history");
         return mv;
     }
 }
