@@ -21,6 +21,9 @@
             $(".goWithdraw").on("click", function () {
                 $(location).attr("href", "/board/withdraw");
             });
+            $(".goHistory").on("click", function () {
+                $(location).attr("href", "/board/history");
+            });
         });
     </script>
 </head>
@@ -54,7 +57,7 @@
                         <td th:text="${list.price}"></td>
                         <td th:text="${list.balance}"></td>
                         <td th:text="${#temporals.format(list.paymentTime, 'yyyy.MM.dd HH:mm:ss')}"></td>
-                        <td><button type="button" class="btn btn-primary" onclick="">내역</button></td>
+                        <td><button type="button" class="btn btn-primary goHistory">내역</button></td>
                     </tr>
                     </tbody>
                 </table>
